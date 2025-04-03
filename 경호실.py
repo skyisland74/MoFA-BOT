@@ -2,6 +2,7 @@ import discord
 from discord import app_commands
 from discord.ext import commands, tasks
 from datetime import datetime
+import os 
 
 # 봇 설정
 intents = discord.Intents.default()
@@ -116,4 +117,5 @@ async def on_ready():
     print(f"✅ {bot.user} 로그인 완료!")
     check_tour.start()  # 자동 알림 시작
 
-bot.run("TOKEN")  # 🚨 여기에 봇 토큰 입력!
+access_token = os.environ['BOT_TOKEN']
+bot.run("access_token")  # 🚨 여기에 봇 토큰 입력!
